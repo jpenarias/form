@@ -1,0 +1,37 @@
+<div class="container container-w">
+  <form [formGroup]="firstsForm" (ngSubmit)="submit()">
+    <div class="input-group mb-3 w-50 inputs-center">
+      <span class="input-group-text" id="basic-addon1">Nombre</span>
+      <input type="text" formControlName="name" required class="form-control" placeholder="Jiseth Arias" aria-label="Nombre" >
+      <span *ngIf="firstsForm.invalid && firstsForm.touched" class="alert-danger mt-1">Es necesario que ingrese un nombre</span>
+      <span *ngIf="this.firstsForm.get('name')?.errors?.['minlength']" class="alert-danger mt-1">El nombre debe tener mas de 3 caracteres</span>
+    </div>
+
+    <div class="input-group mb-3 w-50 inputs-center">
+      <span class="input-group-text">Edad</span>
+      <input type="text" formControlName="ege" required class="form-control" placeholder="20" aria-label="Edad">
+    </div>
+
+    <div class="input-group mb-3 w-50 inputs-center">
+      <span class="input-group-text">Email</span>
+      <input type="text" formControlName="email" required class="form-control" placeholder="ejemplo@ejemplo.com" aria-label="Email">
+      <span *ngIf="this.firstsForm.get('email')?.errors?.['email']" class="alert-danger mt-1">Debe ser un email valido por ejemplo: ejemplo@ejemplo.com</span>
+    </div>
+
+    <div class="input-group mb-3 w-50 inputs-center">
+      <span class="input-group-text">Direccion</span>
+      <input type="text" formControlName="address" required class="form-control" placeholder="calle 47 #18-30" aria-label="Direccion">
+      <span *ngIf="this.firstsForm.get('address')?.errors?.['required']" class="alert-danger mt-1">El campo de direccion no puede quedar vacio</span>
+    </div>
+
+    <div class="input-group mb-3 w-50 inputs-center">
+      <span class="input-group-text">Mensaje</span>
+      <textarea formControlName="message" class="form-control" aria-label="Mensaje"></textarea>
+      <span *ngIf="this.firstsForm.get('message')?.errors?.['required']" class="alert-danger mt-1">El campo de Mensaje no puede quedar vacio</span>
+      <span *ngIf="this.firstsForm.get('message')?.errors?.['maxlength']" class="alert-danger mt-1">Como máximo 500 caracteres</span>
+    </div>
+    <div class="d-flex">
+      <button class="btn btn-outline-primary inputs-center" type="submit">Confirmar</button>
+    </div>
+  </form>
+</div>

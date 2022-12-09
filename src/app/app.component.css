@@ -1,0 +1,6 @@
+.bg-primary {
+  background: rgb(3,3,138);
+  background: radial-gradient(circle, rgba(3,3,138,1) 42%, rgba(44,182,210,1) 100%);
+  color: white;
+  margin-bottom: 50px;
+}
